@@ -11,7 +11,8 @@ The pipeline is designed to retrieve json messages of urls to be checked.
 {
         "hostname":"flowermeaning.com",
         "imageUrl":"http://www.flowermeaning.com/flower-pics/Orchid-Meaning.jpg"
-}```
+}
+```
 
 Then the lambda is started up with the message and it downloads the bytes of the image and sends it to Amazon Rekognition for image Moderation
 
