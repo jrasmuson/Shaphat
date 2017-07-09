@@ -1,0 +1,32 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  shaphattestlambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: 'LambdaHandler::recordHandler'
+      Runtime: java8
+      CodeUri: .
+      Description: ''
+      MemorySize: 1024
+      Timeout: 30
+      Role: 'arn:aws:iam::312220388267:role/shaphat_test_role'
+      Events:
+        Kinesis1:
+          Type: Kinesis
+          Properties:
+            Stream:
+              'Fn::GetAtt':
+                - KinesisStream1
+                - Arn
+            StartingPosition: TRIM_HORIZON
+            BatchSize: 100
+      Environment:
+        Variables:
+          image_timeout: '8'
+          table_name: shaphat_test_table
+  KinesisStream1:
+    Type: 'AWS::Kinesis::Stream'
+    Properties:
+      ShardCount: 1
