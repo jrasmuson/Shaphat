@@ -23,4 +23,4 @@ Lambda then uses the labels and confidence level to save the values in dynamo
 
 The pipeline can scale based on the number of shards in Kinesis, the size of the batch retireved from kinesis, and the size of the lambda runtime used.
 
-To setup the pipeline check the steps in [SettingUpEnv](Docs/SettingUpEnv)
+To setup the pipeline check the steps in [SettingUpEnv](docs/SettingUpEnv)
